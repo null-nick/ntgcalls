@@ -21,7 +21,9 @@ namespace ntgcalls::instances {
         std::shared_ptr<wrtc::interfaces::GroupConnection> presentation_connection_;
 
     public:
-        explicit GroupCall(wrtc::utils::SafeThread& update_thread): CallInterface(update_thread) {}
+        explicit GroupCall(wrtc::utils::SafeThread& update_thread): CallInterface(update_thread) {
+            stream_manager_->enable_video_simulcast(true);
+        }
 
         void stop() override;
 

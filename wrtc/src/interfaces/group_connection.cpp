@@ -444,6 +444,8 @@ namespace wrtc::interfaces {
         media_content.type = models::MediaContent::Type::Video;
         media_content.user_id = user_id;
         media_content.ssrc_groups = ssrc_groups;
+        media_content.rtp_extensions = media_config_.video_rtp_extensions;
+        media_content.payload_types = media_config_.video_payload_types;
         if (mtproto_stream_) {
             mtproto_stream_->add_incoming_video(
                 endpoint,
